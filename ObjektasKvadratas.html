@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>28 paskaita</title>
+</head>
+<body>
+
+    <input type="text" id="krastineA" name="krastineA" value="10">
+    <input type="text" id="krastineB" name="krastineB" value="30">
+
+    <button id="plotas">Plotas</button>
+    <button id="perimetras">Perimetras</button>
+    <button id="istrizaine">Istrizaine</button>
+
+    <p id="rezultatas"></p>
+    
+
+    <script>
+        "use strict"
+
+        //1. Susikurti objektą "Kvadratas" (pat. staciakampis).+
+    // Objektas turi priimti du kintamuosius: a ir b kraštines.+
+    // Sukurti du metodus (kol kas sukurtas vienas), kurie skaičiuoja kvadrato plotą, perimetrą, įstrižainės ilgį.+
+    // Informaciją išvesti į <p> žymę. +
+
+
+        var staciakampis = {
+            a : 0,
+            b: 0,
+
+            rezultatas:0, 
+        
+        //plotasS: 0,  // S= a*b
+        //perimetrasP: 0, // P= 2*(a+b)
+        //istrizaineD: 0, // d2= a2+b2    
+
+        paleidimas: function(krastineA, krastineB) {
+            this.a=krastineA;
+            this.b=krastineB;
+        },
+
+        plotasS: function() {
+            var plotas= this.a * this.b;
+            return plotas; 
+        },
+
+        perimetrasP: function() {
+            var perimetras= 2*(this.a + this.b);
+            return perimetras;
+            
+        },
+
+        istrizaineD: function() {
+            var istrizaine= Math.sqrt(this.a**2 + this.b**2);
+            return istrizaine; 
+        },
+           
+    };   
+
+        // apsibreziamas skaiciavimo metodas ir atvaizdavimas. Plotas
+        document.querySelector("#plotas").addEventListener("click", function() {
+            var krastineA=parseFloat(document.querySelector("#krastineA").value); // koks kintamasis imamas is input
+            var krastineB=parseFloat(document.querySelector("#krastineB").value); // koks kintamasis imamas is input
+            var isvedimoElementas=document.querySelector("#rezultatas");// kur isvedama
+            staciakampis.paleidimas (krastineA, krastineB); // kokie kintamieji veikia paleidimo metu
+           
+            isvedimoElementas.innerHTML=staciakampis.plotasS(krastineA, krastineB); // apibrezia mygtuko vykdymo komanda- funkcija
+        });
+
+        document.querySelector("#perimetras").addEventListener("click", function() {
+            var krastineA=parseFloat(document.querySelector("#krastineA").value); 
+            var krastineB=parseFloat(document.querySelector("#krastineB").value); 
+            var isvedimoElementas=document.querySelector("#rezultatas");
+            staciakampis.paleidimas (krastineA, krastineB); 
+           
+            isvedimoElementas.innerHTML=staciakampis.perimetrasP(krastineA, krastineB);
+        });
+
+        document.querySelector("#istrizaine").addEventListener("click", function() {
+            var krastineA=parseFloat(document.querySelector("#krastineA").value); 
+            var krastineB=parseFloat(document.querySelector("#krastineB").value); 
+            var isvedimoElementas=document.querySelector("#rezultatas");
+            staciakampis.paleidimas (krastineA, krastineB); 
+           
+            isvedimoElementas.innerHTML=staciakampis.istrizaineD(krastineA, krastineB);
+        });
+
+       
+        //console.log (staciakampis); 
+        //staciakampis.plotasS;
+        //console.log(plotasS);
+        
+        
+
+    </script>
+    
+</body>
+</html>
