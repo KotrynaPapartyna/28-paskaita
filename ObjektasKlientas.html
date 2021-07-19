@@ -11,10 +11,12 @@
         .container, th {
         border: 1px solid black;
         border-collapse: collapse; 
+        text-align: left;
 
     }
         table {
             width: 100%;
+            border-spacing: 5px;
         }
 
         
@@ -23,14 +25,12 @@
     
         <div class="container">
             <table>
-                <tr>
-                    <th>Vardas</th>
-                    <th>Pavarde</th>
-                    <th>Asmens kodas</th>
-                    <th>Prisijungimo data</th>
-                    <th>Adresas</th>
-                    <th>El Pastas</th>
-                </tr> 
+                <th>Vardas</th>
+                <th>Pavarde</th>
+                <th>Asmens kodas</th>
+                <th>Prisijungimo data</th>
+                <th>Adresas</th>
+                <th>El Pastas</th>
             </table> 
        
         </div>
@@ -48,19 +48,19 @@
             
     var date= new Date();
     var klientas= {
-        vardas: "Petras ",
-        pavarde: "Petraitis",
-        asmensKodas: "1234567890", 
+        vardas: "Vardas: Petras ",
+        pavarde: "Pavarde: Petraitis",
+        asmensKodas: "Asmens kodas: 1234567890", 
         prisijungimoData: new Date, 
-        adresas: "Vasaros g. 5", 
-        elPastas: "petras@petraitis",
+        adresas: "Adresas: Vasaros g. 5", 
+        elPastas: "El.pasto adresas: petras@petraitis",
     }
 
     console.log(klientas.vardas);
     console.log(klientas.pavarde);
-    console.log(klientas.asmensKodas);
+    console.log(klientas["asmensKodas"]);
     console.log(klientas.prisijungimoData);
-    console.log(klientas.adresas);
+    console.log(klientas["adresas"]);
     console.log(klientas.elPastas);
 
 
@@ -73,7 +73,7 @@
             vardas: "Vardas"+ (i+1),
             pavarde: "Pavarde"+ (i+1),
             asmensKodas: "AsmensKodas"+ (i+1), 
-            prisijungimoData: "Prisijungimo data" + (i+1), 
+            prisijungimoData: new Date + (i+1), 
             adresas: "Adresas" + (i+1), 
             elPastas: "El-Pastas" + (i+1),
         }; 
