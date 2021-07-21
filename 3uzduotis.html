@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 uzduotis su destytoju</title>
+</head>
+
+<style>
+    table {
+        border: 1px solid black; 
+    }
+    th {
+        border:1px solid black;
+    }
+</style>
+<body>
+
+    <table class="klientai">
+        <tr>
+            <th>Vardas</th>
+            <th>Pavarde</th>
+            <th>asmensKodas</th>
+            <th>Prisijungimo data</th>
+            <th>Adresas</th>
+            <th>ElPastas</th>
+        </tr>
+    </table>
+
+<script>
+
+    "use strict"
+
+
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
+
+    
+    var klientuMasyvas= [];
+
+    // klientu generavimas
+    for (var i=0; i<200; i++) {
+        var klientas = {
+            vardas:"",
+            pavarde: "",
+            asmensKodas: "",
+            prisijungimoData: "",
+            adresas: "",
+            elPastas: "",
+    }
+
+
+        klientas.vardas="vardas"+(i+1);
+        klientas.pavarde="pavarde"+(i+1);
+        //klientas.asmensKodas="266262454"+(i+1);
+        klientas.asmensKodas=getRndInteger(3985254515,399999999);
+        klientas.prisijungimoData= new Date();
+        klientas.adresas="adresas"+(i+1);
+        klientas.elPastas="testinis"+(i+1)+"@gmail.com";
+        klientuMasyvas.push(klientas);
+       }
+       
+       //klientu atvaizdavimas 
+
+       var isvedimoElementas=document.querySelector(".klientai");
+
+       for (var i=0; i<klientuMasyvas; i++) {
+        // sukurti tuscias eilutes kaip pvz 
+
+        //elementas eilutei 
+        var eilute= document.createElement("tr"); //sukuriamas elementas- eilute, kintamasis
+        eilute.classList.add("klientas"); // elementui priskiriama klase- klientas ir toliau- isvedimas
+        
+
+        //var stulpelis=document.createElement("td"); // elementas- stulpeliui 
+        //stulpelis.innerText=klientuMasyvas[i].vardas; // prie stulpelio pridedamas turinys- text
+        //eilute.append(stulpelis) // prie eilutes pridedamas stulpelis
+        
+
+        // vardo atvaizdavimas
+        var vardas=document.createElement("td");
+        vardas.innerText=klientuMasyvas[i].vardas;
+        eilute.append(vardas);
+        
+        //pavardes atvaizdavimas
+        var pavarde=document.createElement("td");
+        pavarde.innerText=klientuMasyvas[i].pavarde;
+        eilute.append(pavarde);
+        
+        //asmens kodo atvaizdavimas
+        var asmensKodas=document.createElement("td");
+        asmensKodas.innerText=klientuMasyvas[i].asmensKodas;
+        eilute.append(asmensKodas);
+        
+        //prisijungimo datos atvaizdavimas
+        var prisijungimoData=document.createElement("td");
+        prisijungimoData.innerText=klientuMasyvas[i].prisijungimoData;
+        eilute.append(prisijungimoData);
+        
+        //adreso atvaizdavimas 
+        var adresas=document.createElement("td");
+        adresas.innerText=klientuMasyvas[i].adresas;
+        eilute.append(adresas);
+
+        //el pasto atvaizdavimas
+        var elPastas=document.createElement("td");
+        elPastas.innerText=klientuMasyvas[i].elPastas;
+        eilute.append(elPastas);
+
+        isvedimoElementas.append(eilute);
+      
+    }; 
+
+       console.log(klientuMasyvas);
+
+</script>
+    
+</body>
+</html>
